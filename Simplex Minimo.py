@@ -41,12 +41,10 @@ def simplex_step(tableau, n, m, zeta, encabezado_columna, d):
     zeta = [float(s) for s in zeta[1:n+1]]
     # zeta = np.array(zeta)
     j = np.argmin(zeta - np.dot(d, tableau[:, :n]))
-    print(j)
     # Encontrar la fila pivote
     ratios = np.divide(tableau[:, -1], tableau[:, j], out=np.full_like(tableau[:, -1], 'inf'), where=(tableau[:, j] != 0))
     indices_positivos = np.where(ratios > 0)[0]
     i = indices_positivos[np.argmin(ratios[indices_positivos])]
-    print(i)
     # Reemplazar Xi por A y ci por M
     encabezado_columna[i+1] = "X" + str(j+1)
     d[i] = zeta[j]
