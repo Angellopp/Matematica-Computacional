@@ -16,7 +16,7 @@ def imprimir_matriz_con_formato(matriz, zeta, encabezado_fila, encabezado_column
     print(encabezado)
     
     # Imprimir la línea separadora del encabezado
-    linea_separadora = "-" * (8 * columnas + 2 * (columnas - 1))  # Ajusta la longitud
+    linea_separadora = "-" * (8 * columnas + 3 * (columnas - 1))  # Ajusta la longitud
     print(linea_separadora)
     
     # Imprimir la matriz con formato
@@ -29,7 +29,7 @@ def imprimir_matriz_con_formato(matriz, zeta, encabezado_fila, encabezado_column
         
         # Imprimir línea separadora si no es la última fila
         if i == filas - 1:
-            print("-" * (8 * columnas + 2 * (columnas - 1)))  # Ajusta la longitud
+            print("-" * (8 * columnas + 3 * (columnas - 1)))  # Ajusta la longitud
     
     zz = f"{str(zeta[0]):^16} | "
     for i in range(columnas-1):
