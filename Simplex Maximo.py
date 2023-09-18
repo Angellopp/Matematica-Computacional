@@ -53,10 +53,10 @@ def main():
     print("Método Simplex - Resolucion de Problemas de Programación Lineal")
 #     m = int(input("Número de restricciones: "))
 #     n = int(input("Número de variables: "))
-    m = 3
-    n = 3
-    # m = 2
-    # n = 2
+    # m = 3
+    # n = 3
+    m = 2
+    n = 2
     
     A = np.zeros((m, n))
     b = np.zeros(m)
@@ -65,22 +65,24 @@ def main():
 #     print("Ingrese los coeficientes de la matriz de coeficientes A:")
 #     for i in range(m):
 #         A[i] = [float(x) for x in input().split()]
-    A = [[2, 1, 1],
-         [1, 2, 3],
-         [2, 2, 1]]
-    # A = [[-1, 3],
-    #      [7, 1]]
+    # A = [[2, 1, 1],
+    #      [1, 2, 3],
+    #      [2, 2, 1]]
+    # b = [2, 5, 6]
+    # c = [3, 1, 3]
+    # c = np.array(c)
+
+    A = [[-1, 3],
+         [7, 1]]
+    b = [6, 35]
+    c = [7, 9]
+    c = np.array(c)
 
 #     print("Ingrese los coeficientes del vector b:")
 #     b = [float(x) for x in input().split()]
-    b = [2, 5, 6]
-    # b = [6, 35]
 
 #     print("Ingrese los coeficientes del vector c (función objetivo):")
 #     c = [float(x) for x in input().split()]
-    c = [3, 1, 3]
-    # c = [7, 9]
-    c = np.array(c)
 
     tableau = np.zeros((m + 1, m + n + 2))
     encabezado_fila = [""] * (m+n+2)
@@ -103,17 +105,17 @@ def main():
     tableau[-1, 0] = 1
 
     # Imprimir la matriz inicial
-    print("Tabla Simplex Inicial:")
+    print("\n.:Tabla Simplex Inicial:.\n")
     imprimir_matriz_con_formato(tableau, encabezado_fila, encabezado_columna)
 
     # Ejecutar el Simplex
     while any(tableau[-1, :-1] < 0):
-        print("\nSiguiente paso del Simplex:")
+        print("\n.:Siguiente paso del Simplex:.\n")
         simplex_step(tableau, n, m, encabezado_fila, encabezado_columna)
         imprimir_matriz_con_formato(tableau, encabezado_fila, encabezado_columna)
 
     # Imprimir el resultado
-    print("\nResultado final:")
+    print("\n.:Resultado final:.\n")
     solucion = np.zeros(n)
 
     # Guardamos los valores en resultado

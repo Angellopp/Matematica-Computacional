@@ -60,16 +60,21 @@ def simplex_step(tableau, n, m, zeta, encabezado_columna, d):
 def main():
     print("Método Simplex - Resolución de Problemas de Programacion Lineal")
     m = 2
-    n = 3
+    n = 2
     
     A = np.zeros((m, n))
     b = np.zeros(m)
     c = np.zeros(n)
     d = np.zeros(m)
-    A = [[1, 2, 3],
-         [2, 2, 1]]
-    b = [5, 6]
-    c = [3, 4, 5]
+    # A = [[1, 2, 3],
+    #      [2, 2, 1]]
+    # b = [5, 6]
+    # c = [3, 4, 5]
+    # c = np.array(c)
+    A = [[1, 4],
+         [1, 2]]
+    b = [3.5, 2.5]
+    c = [3, 8]
     c = np.array(c)
 
     tableau = np.zeros((m, 2*m + n + 1))
@@ -99,17 +104,17 @@ def main():
     zeta[1:n+1] = [str(v) for v in c]
 
     # Imprimir la matriz inicial
-    print("Tabla Simplex Inicial:")
+    print("\n.:Tabla Simplex Inicial:.\n")
     imprimir_matriz_con_formato(tableau, zeta, encabezado_fila, encabezado_columna, d)
 
     # Ejecutar el Simplex
     while any([float(s) for s in zeta[1:n+1]] - np.dot(d, tableau[:, :n]) < 0):
-        print("\nSiguiente paso del Simplex:")
+        print("\n.:Siguiente paso del Simplex:.\n")
         simplex_step(tableau, n, m, zeta, encabezado_columna, d)
         imprimir_matriz_con_formato(tableau, zeta, encabezado_fila, encabezado_columna, d)
 
     # Imprimir el resultado
-    print("\nResultado final:")
+    print("\n.:Resultado final:.\n")
     solucion = np.zeros(n)
 
     # Guardamos los valores en resultado
