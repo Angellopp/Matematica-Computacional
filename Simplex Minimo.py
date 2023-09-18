@@ -59,6 +59,8 @@ def simplex_step(tableau, n, m, zeta, encabezado_columna, d):
 
 def main():
     print("Método Simplex - Resolución de Problemas de Programacion Lineal")
+    # m = 2
+    # n = 3
     m = 2
     n = 2
     
