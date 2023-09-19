@@ -50,7 +50,7 @@ def simplex_step(tableau, n, m, encabezado_fila, encabezado_columna):
                 tableau[k, :] -= tableau[k, j] * tableau[i, :]
 
 def main():
-    print("Método Simplex - Resolucion de Problemas de Programación Lineal")
+    print("\n.:Metodo Simplex - Resolucion de Problemas de Programacion Lineal:.\n")
 #     m = int(input("Número de restricciones: "))
 #     n = int(input("Número de variables: "))
     # m = 3
